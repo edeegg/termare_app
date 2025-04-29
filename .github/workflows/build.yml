@@ -17,7 +17,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
-          cache: 'gradle'                  # optional
+          cache: 'gradle'
 
       - name: Set Up Flutter
         uses: subosito/flutter-action@v2
@@ -28,25 +28,38 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Build APK
+      - name: Build APK Debug
         run: flutter build apk --debug
 
-      # … your release/upload steps …
+      - name: Extract Version
+        id: extract_version
+        run: |
+          version=$(grep '^version: ' pubspec.yaml | cut -d ' ' -f 2)
+          echo "VERSION=$version" >> $GITHUB_ENV
 
+      - name: Check Existing Release
+        id: check_release
+        run: |
+          if gh release view v${{ env.VERSION }}-debug; then
+            echo "EXISTS=true" >> $GITHUB_ENV
+          else
+            echo "EXISTS=false" >> $GITHUB_ENV
+          fi
 
       - name: Create Release
+        if: env.EXISTS == 'false'
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}   # <— Aqui você passa o token
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          tag_name: v${{ env.VERSION }}-debug
+          release_name: Debug v${{ env.VERSION }}
           draft: false
-          prerelease: false
+          prerelease: true
 
-      - name: Upload APK to Release
+      - name: Upload APK
+        if: env.EXISTS == 'false'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

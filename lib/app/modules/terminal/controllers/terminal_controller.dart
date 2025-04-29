@@ -32,7 +32,7 @@ function initApp(){
     ln -s \${arr[0]} \${arr[3]}
   done
   rm -rf SYMLINKS.txt
-  TMPDIR=/data/data/com.nightmare.termare/files/usr/tmp
+  TMPDIR=/data/data/com.termux/files/usr/tmp
   filename=bootstrap
   rm -rf "\$TMPDIR/\$filename*"
   rm -rf "\$TMPDIR/*"

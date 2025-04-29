@@ -12,6 +12,8 @@ import 'package:termare_app/app/modules/terminal/views/download_bootstrap_page.d
 import 'package:termare_app/app/modules/terminal/views/terminal_pages.dart';
 import 'package:termare_app/app/modules/terminal/views/xterm_wrapper.dart';
 import 'package:termare_app/app/widgets/termare_view_with_bar.dart';
+import 'package:termare_view/termare_view.dart';
+import 'package:termare_view/src/termare_controller.dart';
 import 'package:termare_app/config/config.dart';
 import 'package:xterm/xterm.dart';
 

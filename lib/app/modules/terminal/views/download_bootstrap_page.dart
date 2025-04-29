@@ -32,7 +32,8 @@ class _DownloadFileState extends State<_DownloadFile> {
   Response<String> response;
   final String filesPath = RuntimeEnvir.usrPath;
   List<String> androidAdbFiles = [
-    'https://nightmare-my.oss-cn-beijing.aliyuncs.com/Termare/bootstrap-aarch64.zip',
+    'https://github.com/termux/termux-packages/releases/download/bootstrap-2025.04.27-r1%2Bapt.android-7/bootstrap-aarch64.zip'
+  //  'https://nightmare-my.oss-cn-beijing.aliyuncs.com/Termare/bootstrap-aarch64.zip',
   ];
   String cur;
   double fileDownratio = 0.0;

@@ -28,8 +28,6 @@ dependencies:
   webview_flutter: ^2.0.12
   pseudo_terminal_utils:
     git: https://github.com/Termare/pseudo_terminal_utils
-  termare_view:
-    git: https://github.com/termare/termare_view
   termare_pty:
     git: https://github.com/Termare/termare_pty
 dev_dependencies:

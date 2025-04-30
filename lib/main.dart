@@ -11,7 +11,7 @@ import 'package:global_repository/global_repository.dart';
 import 'app/routes/app_pages.dart';
 
 Future<void> main() async {
-  RuntimeEnvir.initEnvirWithPackageName('com.nightmare.termare');
+  RuntimeEnvir.initEnvirWithPackageName('com.termux');
    WidgetsFlutterBinding.ensureInitialized();
   if (GetPlatform.isDesktop) {
     await Window.initialize();

@@ -45,7 +45,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.termux"//"com.nightmare.termare"
+        applicationId "com.flutteride.android"//"com.nightmare.termare"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
